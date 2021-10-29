@@ -14,6 +14,7 @@ func main() {
 	log.Println("--------------")
 
 	solutions.Day1().Run()
+	solutions.Day2().Run()
 
 	elapsed := time.Since(start)
 	log.Printf("Runtime: %s", elapsed)

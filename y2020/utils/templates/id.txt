@@ -1,0 +1,14 @@
+package solutions
+
+func Day{{.ID}}() Day {
+
+	part1 := func(input string) string {
+        return ""
+	}
+
+	part2 := func(input string) string {
+        return ""
+	}
+
+	return Day{ID: "{{.ID}}", Part1: part1, Part2: part2}
+}

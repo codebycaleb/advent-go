@@ -6,7 +6,7 @@ import (
 	"github.com/codebycaleb/advent-go/y2020/utils"
 )
 
-func Day1() Day {
+func Day01() Day {
 
 	part1 := func(input string) string {
 		entries := utils.Integers(input)

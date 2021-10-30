@@ -7,7 +7,7 @@ import (
 	"github.com/codebycaleb/advent-go/y2020/utils"
 )
 
-func Day2() Day {
+func Day02() Day {
 
 	parseLine := func(line string) (int, int, byte, string) {
 		// parse from "1-2 a: s" to (1, 2, 'a', "s")

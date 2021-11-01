@@ -12,6 +12,7 @@ import (
 var completedSolutions = map[string]solutions.Day{
 	"01": solutions.Day01(),
 	"02": solutions.Day02(),
+	"03": solutions.Day03(),
 }
 
 func createNewDay(day string) {
@@ -52,7 +53,7 @@ func main() {
 		daysToRun = append(daysToRun, completedSolutions[day])
 	} else {
 		ids := []string{}
-		for id, _ := range completedSolutions {
+		for id := range completedSolutions {
 			ids = append(ids, id)
 		}
 		sort.Strings(ids)

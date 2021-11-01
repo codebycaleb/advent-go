@@ -57,4 +57,10 @@ func CreateNewDayFiles(id string) {
 	if err != nil {
 		panic(err)
 	}
+
+	// also touch input file
+	_, err = os.Create(fmt.Sprintf("inputs/%v.txt", id))
+	if err != nil {
+		panic(err)
+	}
 }

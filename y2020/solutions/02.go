@@ -2,6 +2,7 @@ package solutions
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 
 	"github.com/codebycaleb/advent-go/y2020/utils"
@@ -52,7 +53,7 @@ func Day02() Day {
 				count++
 			}
 		}
-		return fmt.Sprintf("%d", count)
+		return strconv.Itoa(count)
 	}
 
 	part2 := func(input string) string {
@@ -64,7 +65,7 @@ func Day02() Day {
 				count++
 			}
 		}
-		return fmt.Sprintf("%d", count)
+		return strconv.Itoa(count)
 	}
 
 	return Day{ID: "02", Part1: part1, Part2: part2}

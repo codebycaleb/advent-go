@@ -1,7 +1,7 @@
 package solutions
 
 import (
-	"fmt"
+	"strconv"
 
 	"github.com/codebycaleb/advent-go/y2020/utils"
 )
@@ -15,7 +15,7 @@ func Day01() Day {
 			inverse_x := 2020 - x
 			_, ok := seen[inverse_x]
 			if ok {
-				return fmt.Sprint(inverse_x * x)
+				return strconv.Itoa(inverse_x * x)
 			}
 			seen[x] = struct{}{}
 		}
@@ -33,7 +33,7 @@ func Day01() Day {
 		for i, x := range entries {
 			sum, ok := sums[2020-x]
 			if ok {
-				return fmt.Sprint(x * sum.X * sum.Y)
+				return strconv.Itoa(x * sum.X * sum.Y)
 			}
 			for _, y := range entries[i+1:] {
 				if x+y < 2020 {

@@ -15,6 +15,7 @@ var completedSolutions = map[string]solutions.Day{
 	"03": solutions.Day03(),
 	"04": solutions.Day04(),
 	"05": solutions.Day05(),
+	"06": solutions.Day06(),
 }
 
 func createNewDay(day string) {

@@ -10,38 +10,31 @@ func Day01() Day {
 
 	part1 := func(input string) string {
 		entries := utils.Integers(input)
-		seen := map[int]struct{}{}
-		for _, x := range entries {
-			inverse_x := 2020 - x
-			_, ok := seen[inverse_x]
-			if ok {
-				return strconv.Itoa(inverse_x * x)
+		// count how many entries are larger than their previous entry
+		var sum int
+		for i := 0; i < len(entries)-1; i++ {
+			if entries[i+1] > entries[i] {
+				sum += 1
 			}
-			seen[x] = struct{}{}
 		}
-		return "err"
-	}
-
-	type Sum struct {
-		X int
-		Y int
+		return strconv.Itoa(sum)
 	}
 
 	part2 := func(input string) string {
 		entries := utils.Integers(input)
-		sums := map[int]Sum{}
-		for i, x := range entries {
-			sum, ok := sums[2020-x]
-			if ok {
-				return strconv.Itoa(x * sum.X * sum.Y)
-			}
-			for _, y := range entries[i+1:] {
-				if x+y < 2020 {
-					sums[x+y] = Sum{x, y}
-				}
+		// map entry at index i to the sum of entries[i], entries[i+1], entries[i+2] as long as entries[i+2] exists
+		sliding_windows := make([]int, len(entries)-2)
+		for i := 0; i < len(entries)-2; i++ {
+			sliding_windows[i] = entries[i] + entries[i+1] + entries[i+2]
+		}
+		// count how many sliding window entries are larger than their previous entry
+		var sum int
+		for i := 0; i < len(sliding_windows)-1; i++ {
+			if sliding_windows[i+1] > sliding_windows[i] {
+				sum += 1
 			}
 		}
-		return "err"
+		return strconv.Itoa(sum)
 	}
 
 	return Day{ID: "01", Part1: part1, Part2: part2}

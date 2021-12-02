@@ -3,9 +3,11 @@ package solutions
 import (
 	"strconv"
 	"strings"
+
+	"github.com/codebycaleb/advent-go/common"
 )
 
-func Day06() Day {
+func Day06() common.Day {
 
 	type Form struct {
 		count     int
@@ -63,5 +65,5 @@ func Day06() Day {
 		return strconv.Itoa(count)
 	}
 
-	return Day{ID: "06", Part1: part1, Part2: part2}
+	return common.Day{ID: "06", Part1: part1, Part2: part2}
 }

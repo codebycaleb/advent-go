@@ -3,9 +3,11 @@ package solutions
 import (
 	"strconv"
 	"strings"
+
+	"github.com/codebycaleb/advent-go/common"
 )
 
-func Day04() Day {
+func Day04() common.Day {
 
 	// passport struct
 	type Passport struct {
@@ -148,5 +150,5 @@ func Day04() Day {
 		return strconv.Itoa(valid)
 	}
 
-	return Day{ID: "04", Part1: part1, Part2: part2}
+	return common.Day{ID: "04", Part1: part1, Part2: part2}
 }

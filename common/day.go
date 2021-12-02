@@ -1,4 +1,4 @@
-package solutions
+package common
 
 import (
 	"fmt"
@@ -8,6 +8,7 @@ import (
 )
 
 type Day struct {
+	YEAR  string
 	ID    string
 	Part1 func(string) string
 	Part2 func(string) string
@@ -18,7 +19,7 @@ func (d Day) Run() {
 	location := fmt.Sprintf("inputs/%v.txt", d.ID)
 	data, err := os.ReadFile(location)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 
 	log.Printf("Day %v Part 1: %v\n", d.ID, d.Part1(string(data)))
@@ -26,23 +27,23 @@ func (d Day) Run() {
 }
 
 // Write boilerplate solution and test files for the day
-func CreateNewDayFiles(id string) {
-	day := Day{ID: id}
+func CreateNewDayFiles(year string, id string) {
+	day := Day{YEAR: year, ID: id}
 
 	// read template files
-	templates, err := template.ParseFiles("utils/templates/id.txt", "utils/templates/id_test.txt")
+	templates, err := template.ParseFiles("common/utils/templates/id.txt", "common/utils/templates/id_test.txt")
 	if err != nil {
 		panic(err)
 	}
 
 	// open writer file for day
-	file, err := os.Create(fmt.Sprintf("solutions/%v.go", id))
+	file, err := os.Create(fmt.Sprintf("y%v/solutions/%v.go", year, id))
 	if err != nil {
 		panic(err)
 	}
 	defer file.Close()
 	// open writer file for tests
-	fileTest, err := os.Create(fmt.Sprintf("solutions/tests/%v_test.go", id))
+	fileTest, err := os.Create(fmt.Sprintf("y%v/solutions/tests/%v_test.go", year, id))
 	if err != nil {
 		panic(err)
 	}
@@ -59,8 +60,10 @@ func CreateNewDayFiles(id string) {
 	}
 
 	// also touch input file
-	_, err = os.Create(fmt.Sprintf("inputs/%v.txt", id))
+	_, err = os.Create(fmt.Sprintf("y%v/inputs/%v.txt", year, id))
 	if err != nil {
 		panic(err)
 	}
+
+	log.Printf("Created new day files for %v %v\n", year, id)
 }

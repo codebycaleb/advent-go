@@ -3,9 +3,11 @@ package solutions
 import (
 	"strconv"
 	"strings"
+
+	"github.com/codebycaleb/advent-go/common"
 )
 
-func Day02() Day {
+func Day02() common.Day {
 
 	// Instructions are given in the form of one of:
 	// forward X | down X | up X
@@ -78,5 +80,5 @@ func Day02() Day {
 		return strconv.Itoa(x * y)
 	}
 
-	return Day{ID: "02", Part1: part1, Part2: part2}
+	return common.Day{ID: "02", Part1: part1, Part2: part2}
 }

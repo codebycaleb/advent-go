@@ -3,7 +3,7 @@ package solutions_test
 import (
 	"testing"
 
-	"github.com/codebycaleb/advent-go/y2021/solutions"
+	"github.com/codebycaleb/advent-go/y{{.YEAR}}/solutions"
 )
 
 const input{{.ID}} = ``

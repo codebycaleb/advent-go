@@ -3,9 +3,11 @@ package solutions
 import (
 	"strconv"
 	"strings"
+
+	"github.com/codebycaleb/advent-go/common"
 )
 
-func Day03() Day {
+func Day03() common.Day {
 
 	// parse input into 2d array of bools where '.' is false and '#' is true
 	parse := func(input string) [][]bool {
@@ -50,5 +52,5 @@ func Day03() Day {
 		return strconv.Itoa(product)
 	}
 
-	return Day{ID: "03", Part1: part1, Part2: part2}
+	return common.Day{ID: "03", Part1: part1, Part2: part2}
 }

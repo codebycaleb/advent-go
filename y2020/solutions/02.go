@@ -5,10 +5,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/codebycaleb/advent-go/y2020/utils"
+	"github.com/codebycaleb/advent-go/common"
+	"github.com/codebycaleb/advent-go/common/utils"
 )
 
-func Day02() Day {
+func Day02() common.Day {
 
 	parseLine := func(line string) (int, int, byte, string) {
 		// parse from "1-2 a: s" to (1, 2, 'a', "s")
@@ -68,5 +69,5 @@ func Day02() Day {
 		return strconv.Itoa(count)
 	}
 
-	return Day{ID: "02", Part1: part1, Part2: part2}
+	return common.Day{ID: "02", Part1: part1, Part2: part2}
 }

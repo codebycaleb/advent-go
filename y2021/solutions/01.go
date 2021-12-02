@@ -3,10 +3,11 @@ package solutions
 import (
 	"strconv"
 
-	"github.com/codebycaleb/advent-go/y2021/utils"
+	"github.com/codebycaleb/advent-go/common"
+	"github.com/codebycaleb/advent-go/common/utils"
 )
 
-func Day01() Day {
+func Day01() common.Day {
 
 	part1 := func(input string) string {
 		entries := utils.Integers(input)
@@ -37,5 +38,5 @@ func Day01() Day {
 		return strconv.Itoa(sum)
 	}
 
-	return Day{ID: "01", Part1: part1, Part2: part2}
+	return common.Day{ID: "01", Part1: part1, Part2: part2}
 }

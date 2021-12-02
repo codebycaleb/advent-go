@@ -4,10 +4,11 @@ import (
 	"sort"
 	"strconv"
 
-	"github.com/codebycaleb/advent-go/y2020/utils"
+	"github.com/codebycaleb/advent-go/common"
+	"github.com/codebycaleb/advent-go/common/utils"
 )
 
-func Day05() Day {
+func Day05() common.Day {
 
 	type Pass struct {
 		row, col, id int
@@ -70,5 +71,5 @@ func Day05() Day {
 		return "-1"
 	}
 
-	return Day{ID: "05", Part1: part1, Part2: part2}
+	return common.Day{ID: "05", Part1: part1, Part2: part2}
 }

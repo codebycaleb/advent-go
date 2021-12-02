@@ -1,0 +1,18 @@
+package solutions
+
+import (
+	"github.com/codebycaleb/advent-go/common"
+)
+
+func Day{{.ID}}() common.Day {
+
+	part1 := func(input string) string {
+        return ""
+	}
+
+	part2 := func(input string) string {
+        return ""
+	}
+
+	return common.Day{ID: "{{.ID}}", Part1: part1, Part2: part2}
+}

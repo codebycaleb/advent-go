@@ -6,48 +6,27 @@ import (
 	"sort"
 	"time"
 
+	"github.com/codebycaleb/advent-go/common"
 	"github.com/codebycaleb/advent-go/y2021/solutions"
 )
 
-var completedSolutions = map[string]solutions.Day{
+var completedSolutions = map[string]common.Day{
 	"01": solutions.Day01(),
 	"02": solutions.Day02(),
-}
-
-func createNewDay(day string) {
-	// Confirm new day flag is set
-	if day == "" {
-		log.Fatal("Please specify a day to create")
-	}
-	// Validate format of day
-	if len(day) != 2 {
-		log.Fatal("Day must be in format DD")
-	}
-	solutions.CreateNewDayFiles(day)
 }
 
 func main() {
 	// Flags
 
-	// create flag
-	var create bool
-	flag.BoolVar(&create, "create", false, "create new day")
-
 	// day flag
 	var day string
-	flag.StringVar(&day, "day", "", "day to create / run (must be in format DD)")
+	flag.StringVar(&day, "day", "", "day to run (must be in format DD)")
 
 	// Parse flags
 	flag.Parse()
 
-	// Handle create flag
-	if create {
-		createNewDay(day)
-		return
-	}
-
 	// Handle day flag
-	var daysToRun []solutions.Day
+	var daysToRun []common.Day
 	if day != "" {
 		daysToRun = append(daysToRun, completedSolutions[day])
 	} else {
@@ -63,8 +42,8 @@ func main() {
 
 	start := time.Now()
 
-	log.Println("Advent of Code")
-	log.Println("--------------")
+	log.Println("Advent of Code 2021")
+	log.Println("-------------------")
 
 	for _, day := range daysToRun {
 		day.Run()

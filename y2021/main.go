@@ -11,6 +11,7 @@ import (
 
 var completedSolutions = map[string]solutions.Day{
 	"01": solutions.Day01(),
+	"02": solutions.Day02(),
 }
 
 func createNewDay(day string) {

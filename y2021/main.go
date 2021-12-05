@@ -13,6 +13,7 @@ import (
 var completedSolutions = map[string]common.Day{
 	"01": solutions.Day01(),
 	"02": solutions.Day02(),
+	"03": solutions.Day03(),
 }
 
 func main() {

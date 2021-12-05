@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/codebycaleb/advent-go/common"
+	"github.com/codebycaleb/advent-go/common/utils"
 )
 
 func Day02() common.Day {
@@ -20,7 +21,8 @@ func Day02() common.Day {
 	part1 := func(input string) string {
 		// parse entries into slice of Instruction
 		instructions := make([]Instruction, 0)
-		for _, entry := range strings.Split(input, "\n") {
+		entries := utils.Lines(input)
+		for _, entry := range entries {
 			tokens := strings.Split(entry, " ")
 			direction := tokens[0]
 			distance, _ := strconv.Atoi(tokens[1])
@@ -50,7 +52,8 @@ func Day02() common.Day {
 	part2 := func(input string) string {
 		// parse entries into slice of Instruction
 		instructions := make([]Instruction, 0)
-		for _, entry := range strings.Split(input, "\n") {
+		entries := utils.Lines(input)
+		for _, entry := range entries {
 			tokens := strings.Split(entry, " ")
 			direction := tokens[0]
 			distance, _ := strconv.Atoi(tokens[1])
